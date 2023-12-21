@@ -1,0 +1,23 @@
+from flask import Flask
+from flask import request, jsonify
+app = Flask(__name__)
+
+motor_firstAngle = 90
+
+@app.route('/engine_side', methods=['GET'])
+def carrier():
+    return jsonify(keyNameX = motor_firstAngle)
+
+
+// get angle from server using ajax in javascript
+var first_angle = null;
+$.ajax({
+    type: "GET",
+    url: "http://127.0.0.1:5000/engine_side",
+    dataType: "json",
+    async: false,
+    success: function(t){
+        first_angle = t['keyNameX'];
+    },
+    error: function(error){error}
+})
