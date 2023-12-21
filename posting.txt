@@ -1,0 +1,25 @@
+from flask import Flask
+from flask import request, jsonify
+app = Flask(__name__)
+
+@app.route('/process', methods=['POST'])
+def receiving():
+    data = request.get_json()
+  
+    return jsonify(result='response_from_flask!')
+
+// using jQuery in javascript
+$.ajax({
+    url: '/process',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({
+        'key': value,
+        'key': value,
+        'key': value,
+    }),
+    success: function(t){
+        console.log('get response from server.')
+    },
+    error: function(error){console.log(error);}
+})
